@@ -7,4 +7,4 @@ egaav server app engine code.
 * Google Cloud Storage
 * Google Sign-in
 * Google Managed VM
-* React-Native 
+* React-Native (For client apps)
