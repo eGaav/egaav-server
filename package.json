@@ -1,0 +1,29 @@
+{
+  "name": "egaav-server",
+  "version": "0.0.1",
+  "description": "egaav server application.",
+  "scripts": {
+    "start": "node app.js",
+    "monitor": "nodemon app.js",
+    "deploy": "gcloud preview app deploy"
+  },
+  "engines": {
+    "node": "~4.2"
+  },
+  "dependencies": {
+    "express": "^4.13.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eGaav/egaav-server.git"
+  },
+  "keywords": [
+    "egaav"
+  ],
+  "author": "vinaymavi@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eGaav/egaav-server/issues"
+  },
+  "homepage": "https://egaav.github.io"
+}
