@@ -1,8 +1,8 @@
 # egaav-server
 egaav server app engine code.
 ## Used technologies 
-* Nodejs
-* Expressjs
+* Node.js
+* Express.js
 * Google Cloud Datastore
 * Google Cloud Storage
 * Google Sign-in
