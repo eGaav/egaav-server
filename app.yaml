@@ -3,6 +3,12 @@ api_version: 1
 threadsafe: true
 
 handlers:
+# The endpoints handler must be mapped to /_ah/spi.
+# Apps send requests to /_ah/api, but the endpoints service handles mapping
+# those requests to /_ah/spi.
+- url: /_ah/spi/.*
+  script: egaav_api.api
+
 - url: /styles
   static_dir: styles
 
@@ -16,5 +22,12 @@ handlers:
 libraries:
 - name: webapp2
   version: latest
+
 - name: jinja2
   version: latest
+
+- name: pycrypto
+  version: 2.6
+
+- name: endpoints
+  version: 1.0

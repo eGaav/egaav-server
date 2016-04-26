@@ -15,3 +15,4 @@ Installation
 ------------
 * webapp2 **pip install webapp2**
 * google python client **pip install --upgrade google-api-python-client**
+* add python sdk to PYTHON path.
