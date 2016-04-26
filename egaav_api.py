@@ -2,9 +2,15 @@
 e-gaav application endpoint apis.
 """
 import endpoints
+import logging
 from protorpc import messages
 from protorpc import message_types
 from protorpc import remote
+
+WEB_CLIENT_ID = '18828650114-l608lhf4u73vom61osuegkof9sgkt4uf.apps.googleusercontent.com'
+ANDROID_CLIENT_ID = 'replace this with your Android client ID'
+IOS_CLIENT_ID = 'replace this with your iOS client ID'
+ANDROID_AUDIENCE = WEB_CLIENT_ID
 
 package = 'Egaav'
 
@@ -26,11 +32,16 @@ STORED_GREETINGS = GreetingCollection(items=[
 
 
 # E-Gaav api
-@endpoints.api(name='egaav', version='v1')
+@endpoints.api(name='egaav', version='v1',
+               allowed_client_ids=[WEB_CLIENT_ID, endpoints.API_EXPLORER_CLIENT_ID],
+               audiences=[ANDROID_AUDIENCE],
+               scopes=[endpoints.EMAIL_SCOPE])
 class Egaav(remote.Service):
     @endpoints.method(message_types.VoidMessage, GreetingCollection, name='admin.student_list', path='students',
                       http_method='GET')
     def student_list(self, request):
+        current_user = endpoints.get_current_user()
+        logging.info('Email=' + current_user.email())
         """
         Api return all list of students.
 
